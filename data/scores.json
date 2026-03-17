@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "description": "Composite risk score configuration and signal weights. Maintainer-editable.",
+    "last_updated": "2026-03-18"
+  },
+  "score": {
+    "composite": 65,
+    "label": "ELEVATED",
+    "description": "Aggregated from 14 indicators across market, hiring, real estate, and sentiment. Score above 70 = high structural risk.",
+    "layers": {
+      "hiring": { "score": 72, "weight": 0.35, "signal": "bearish" },
+      "market": { "score": 68, "weight": 0.30, "signal": "bearish" },
+      "blr_ground": { "score": 55, "weight": 0.20, "signal": "warning" },
+      "sentiment": { "score": 61, "weight": 0.15, "signal": "warning" }
+    },
+    "thresholds": {
+      "low": { "max": 40, "label": "LOW", "color": "green" },
+      "moderate": { "max": 55, "label": "MODERATE", "color": "blue" },
+      "elevated": { "max": 70, "label": "ELEVATED", "color": "yellow" },
+      "high": { "max": 85, "label": "HIGH", "color": "orange" },
+      "critical": { "max": 100, "label": "CRITICAL", "color": "red" }
+    }
+  },
+  "signal_feed": [
+    {
+      "id": "bse_it_drop",
+      "text": "BSE IT index hits 2.5yr low in Feb 2026 — AI outsourcing fears cited",
+      "date": "2026-02-14",
+      "category": "market",
+      "signal": "bearish",
+      "source": "Economic Times"
+    },
+    {
+      "id": "tcs_q3",
+      "text": "TCS Q3: Utilisation rises to 82%, no headcount expansion planned",
+      "date": "2026-01-09",
+      "category": "hiring",
+      "signal": "bearish",
+      "source": "TCS Q3 Results"
+    },
+    {
+      "id": "us_layoffs_2026",
+      "text": "30,000+ US tech layoffs YTD 2026 — lag effect expected in BLR by Q3",
+      "date": "2026-03-10",
+      "category": "market",
+      "signal": "bearish",
+      "source": "Layoffs.fyi"
+    },
+    {
+      "id": "naukri_qa_drop",
+      "text": "Naukri: Manual QA job postings down 28% YoY in Bangalore",
+      "date": "2026-03-01",
+      "category": "hiring",
+      "signal": "bearish",
+      "source": "Community — Naukri analysis"
+    },
+    {
+      "id": "copilot_adoption",
+      "text": "GitHub Copilot adoption up 3x among Indian IT majors — productivity per dev rising",
+      "date": "2026-02-20",
+      "category": "market",
+      "signal": "bearish",
+      "source": "GitHub State of Octoverse"
+    },
+    {
+      "id": "whitefield_vacancy",
+      "text": "Whitefield office vacancy climbs to 18.4% — highest since 2020",
+      "date": "2026-03-05",
+      "category": "blr_ground",
+      "signal": "warning",
+      "source": "JLL Q4 2025 Report"
+    },
+    {
+      "id": "upgrad_spike",
+      "text": "UpGrad reports 32% surge in BLR enrollments — workforce anxiety signal",
+      "date": "2026-02-28",
+      "category": "blr_ground",
+      "signal": "warning",
+      "source": "UpGrad press release"
+    },
+    {
+      "id": "niti_aayog",
+      "text": "NITI Aayog: India IT headcount may fall from 8M to 6M by 2031 in worst case",
+      "date": "2025-12-10",
+      "category": "market",
+      "signal": "bearish",
+      "source": "NITI Aayog report"
+    }
+  ]
+}

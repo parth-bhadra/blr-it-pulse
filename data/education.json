@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "description": "College placement data and education signals for Bangalore engineering colleges",
+    "update_frequency": "Bi-annual (post-placement season: Nov and May) — community contributed",
+    "sources": ["College placement cells", "Alumni LinkedIn data", "Community reports"],
+    "last_updated": "2026-03-18",
+    "updated_by": "maintainer",
+    "how_to_update": "Reach out to placement coordinators at target colleges, or crowdsource via alumni groups on LinkedIn/WhatsApp. Submit PR with updated values."
+  },
+  "placement_rates": {
+    "season": "2025-26",
+    "tier": "Top non-IIT Bangalore colleges (RV, BMS, PESIT, MSRIT, NIE)",
+    "overall_placement_pct": 74,
+    "prev_season_pct": 82,
+    "peak_pct_2022": 89,
+    "signal": "declining",
+    "avg_first_offer_lpa": 4.8,
+    "avg_first_offer_prev_year_lpa": 4.7,
+    "salary_signal": "stagnant",
+    "offer_to_joining_ratio_pct": 68,
+    "note": "Many offers not converting — joining delays, mass rescissions by mid-tier IT companies",
+    "non_it_placement_pct": 22,
+    "non_it_prev_year_pct": 16,
+    "note_non_it": "Rising share of CS/IT grads taking non-tech jobs — structural demand signal",
+    "history": [
+      { "season": "2021-22", "placement_pct": 89, "avg_lpa": 5.2 },
+      { "season": "2022-23", "placement_pct": 88, "avg_lpa": 5.0 },
+      { "season": "2023-24", "placement_pct": 82, "avg_lpa": 4.9 },
+      { "season": "2024-25", "placement_pct": 79, "avg_lpa": 4.8 },
+      { "season": "2025-26", "placement_pct": 74, "avg_lpa": 4.8 }
+    ]
+  },
+  "role_risk_matrix": [
+    {
+      "role": "Manual QA / Testing",
+      "risk_level": "critical",
+      "risk_score": 90,
+      "reason": "Automated testing tools and AI-driven QA directly replacing this at scale",
+      "timeline": "Already happening",
+      "action": "Upskill to SDET, automation testing, shift-left QA engineering"
+    },
+    {
+      "role": "L1 / L2 IT Support",
+      "risk_level": "critical",
+      "risk_score": 88,
+      "reason": "LLM-based chatbots and RAG systems replacing first-line support extensively",
+      "timeline": "Already happening",
+      "action": "Move to L3 infra, SRE, cloud ops, or security operations"
+    },
+    {
+      "role": "Junior Dev / Code Maintenance",
+      "risk_level": "high",
+      "risk_score": 70,
+      "reason": "Copilot-class tools significantly reduce lines-of-code-per-head requirements",
+      "timeline": "1–2 years",
+      "action": "Focus on system design, architecture decisions, AI tool fluency"
+    },
+    {
+      "role": "Business Analyst / SDLC",
+      "risk_level": "high",
+      "risk_score": 62,
+      "reason": "Requirements documentation, test cases, user stories being AI-generated",
+      "timeline": "2–3 years",
+      "action": "Add product management skills, deep domain expertise, stakeholder leadership"
+    },
+    {
+      "role": "Data Engineering",
+      "risk_level": "moderate",
+      "risk_score": 45,
+      "reason": "Demand growing but tooling shifting. LLM-powered pipelines changing stack.",
+      "timeline": "Evolving",
+      "action": "Learn modern stack: dbt, Spark, Iceberg, LLM integration patterns"
+    },
+    {
+      "role": "Cloud / DevOps",
+      "risk_level": "low",
+      "risk_score": 30,
+      "reason": "Infrastructure complexity growing faster than AI can simplify it",
+      "timeline": "Stable for 3–5 years",
+      "action": "Certify in AWS/GCP/Azure, add FinOps and security ops skills"
+    },
+    {
+      "role": "Cybersecurity",
+      "risk_level": "low",
+      "risk_score": 20,
+      "reason": "AI creates more attack surface, security demand grows with it",
+      "timeline": "Growing demand",
+      "action": "CISSP, cloud security, red team / penetration testing specialisation"
+    },
+    {
+      "role": "AI / ML Engineering",
+      "risk_level": "low",
+      "risk_score": 15,
+      "reason": "Builders of the wave — highest demand, hardest to offshore",
+      "timeline": "5+ year runway",
+      "action": "MLOps, LLMOps, fine-tuning, RAG architectures, AI product engineering"
+    },
+    {
+      "role": "Product + Tech Hybrid",
+      "risk_level": "very_low",
+      "risk_score": 10,
+      "reason": "Business context + technical fluency + stakeholder influence — hardest to automate",
+      "timeline": "Safest category",
+      "action": "Build domain expertise + product sense on top of engineering foundation"
+    }
+  ]
+}

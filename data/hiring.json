@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "description": "Hiring signal data: job posting volumes, role demand trends, campus hiring",
+    "update_frequency": "Monthly — community contributed",
+    "sources": ["Naukri.com", "LinkedIn", "Company press releases", "Alumni networks"],
+    "last_updated": "2026-03-18",
+    "updated_by": "maintainer",
+    "how_to_update": "Track naukri.com/jobs/bangalore?category=it monthly. Count postings for each role category, update yoy_change_pct."
+  },
+  "job_postings": [
+    {
+      "id": "manual_qa",
+      "label": "Manual QA / Testing",
+      "description": "Most at-risk category — test automation and AI replacing manual testers fast",
+      "yoy_change_pct": -28,
+      "signal": "critical",
+      "current_monthly_postings": 1240,
+      "prev_year_monthly_postings": 1720,
+      "trend": [-5, -8, -12, -15, -21, -28],
+      "note": "Automated testing tools and AI-driven QA platforms directly replacing this category"
+    },
+    {
+      "id": "l1_l2_support",
+      "label": "L1 / L2 IT Support",
+      "description": "BPO + IT helpdesk roles. AI chatbots and RAG systems replacing first-line support.",
+      "yoy_change_pct": -19,
+      "signal": "critical",
+      "current_monthly_postings": 2100,
+      "prev_year_monthly_postings": 2590,
+      "trend": [-3, -6, -9, -12, -15, -19],
+      "note": "Large BPO clients deploying LLM-based Tier-1 support. Tier-2 next."
+    },
+    {
+      "id": "fresher_it",
+      "label": "Fresher IT (0–2 yrs)",
+      "description": "Entry-level software engineering, coding, and IT generalist roles",
+      "yoy_change_pct": -15,
+      "signal": "high",
+      "current_monthly_postings": 4800,
+      "prev_year_monthly_postings": 5650,
+      "trend": [-2, -4, -7, -9, -12, -15],
+      "note": "Biggest volume drop is in entry-level roles. Senior roles relatively stable."
+    },
+    {
+      "id": "data_engineering",
+      "label": "Data Engineering",
+      "description": "Data pipelines, warehousing, ETL. Growing but evolving with AI tooling.",
+      "yoy_change_pct": 8,
+      "signal": "moderate",
+      "current_monthly_postings": 1890,
+      "prev_year_monthly_postings": 1750,
+      "trend": [2, 3, 4, 5, 6, 8],
+      "note": "Demand growing but tooling is shifting. dbt, Spark, LLM-powered pipelines."
+    },
+    {
+      "id": "ai_ml",
+      "label": "AI / ML Engineering",
+      "description": "Model training, MLOps, LLM integration, AI product engineering",
+      "yoy_change_pct": 41,
+      "signal": "growing",
+      "current_monthly_postings": 2200,
+      "prev_year_monthly_postings": 1560,
+      "trend": [8, 14, 20, 27, 34, 41],
+      "note": "Fastest growing category in BLR. Still requires significant upskilling."
+    },
+    {
+      "id": "cloud_security",
+      "label": "Cloud / Cybersecurity",
+      "description": "Cloud architecture, DevSecOps, security engineering",
+      "yoy_change_pct": 22,
+      "signal": "growing",
+      "current_monthly_postings": 3100,
+      "prev_year_monthly_postings": 2540,
+      "trend": [4, 7, 11, 15, 18, 22],
+      "note": "Strong demand. Cloud migration and security complexity is AI-resistant."
+    }
+  ],
+  "jd_signals": {
+    "ai_tools_required_pct": 34,
+    "ai_tools_required_prev_year_pct": 8,
+    "note": "% of all BLR tech JDs mentioning AI tools as requirement. Up ~4x in 2 years.",
+    "signal": "warning"
+  },
+  "campus_hiring": {
+    "last_updated": "2026-03-18",
+    "companies": [
+      {
+        "name": "TCS",
+        "fy26_target": 40000,
+        "fy25_actual": 42000,
+        "fy24_actual": 60000,
+        "signal": "declining",
+        "note": "Significant drop from FY24 peak. Fresher intake being replaced by experienced + AI tools."
+      },
+      {
+        "name": "Infosys",
+        "fy26_target": 25000,
+        "fy25_actual": 26000,
+        "fy24_actual": 35000,
+        "signal": "declining",
+        "note": "Offer delays common. Many FY25 offers joined late or were rescinded."
+      },
+      {
+        "name": "Wipro",
+        "fy26_target": 12000,
+        "fy25_actual": 13000,
+        "fy24_actual": 20000,
+        "signal": "declining",
+        "note": "Sharpest proportional decline among Big 4."
+      },
+      {
+        "name": "HCL Tech",
+        "fy26_target": 10000,
+        "fy25_actual": 11000,
+        "fy24_actual": 14000,
+        "signal": "declining",
+        "note": "Products division stable, services intake down."
+      }
+    ],
+    "total_big4_fy26": 87000,
+    "total_big4_fy24": 129000,
+    "decline_pct": 32.6
+  }
+}

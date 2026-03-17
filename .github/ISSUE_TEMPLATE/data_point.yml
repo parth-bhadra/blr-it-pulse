@@ -1,0 +1,74 @@
+name: "📊 Data Point Submission"
+description: "Submit a new data point or update an existing indicator"
+labels: ["data-point", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to BLR IT Pulse! Please fill in as much detail as possible.
+        A maintainer will review and merge valid submissions within ~48 hours.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Indicator category
+      options:
+        - "Hiring — Job posting volumes (Naukri / LinkedIn)"
+        - "Hiring — Campus placement data"
+        - "Market — BSE / NSE stock data"
+        - "Market — US tech layoffs"
+        - "BLR — Office real estate (JLL / CBRE)"
+        - "BLR — Consumer economy proxy"
+        - "BLR — Upskilling enrollment data"
+        - "Education — College placement rates"
+        - "Other — New signal suggestion"
+    validations:
+      required: true
+
+  - type: input
+    id: indicator
+    attributes:
+      label: Specific indicator
+      placeholder: "e.g. Manual QA posting count on Naukri BLR (March 2026)"
+    validations:
+      required: true
+
+  - type: input
+    id: value
+    attributes:
+      label: Value observed
+      placeholder: "e.g. 1,240 postings (down from 1,720 in Feb 2026)"
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source / evidence
+      placeholder: "URL or description of how you got this number"
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Date of observation
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes (optional)
+      placeholder: "Any context, caveats, or methodology notes"
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: "I have verified this data against the source"
+          required: true
+        - label: "I agree this data will be published under MIT license"
+          required: true

@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "description": "Bangalore ground-level economic indicators: office real estate, consumer economy proxies",
+    "update_frequency": "Quarterly — community contributed",
+    "sources": ["JLL India", "CBRE South Asia", "Anarock", "BLR RTO data", "Community observation"],
+    "last_updated": "2026-03-18",
+    "updated_by": "maintainer",
+    "how_to_update": "JLL and CBRE publish quarterly BLR office market reports (usually 3-4 weeks after quarter end). Check jll.co.in and cbre.co.in for 'Bengaluru Office Market'."
+  },
+  "commercial_realestate": {
+    "grade_a_absorption_msqft": 14.2,
+    "grade_a_absorption_prev_year": 14.1,
+    "signal": "neutral",
+    "vacancy_rate_pct": 18.4,
+    "vacancy_rate_prev_year_pct": 14.0,
+    "signal_vacancy": "warning",
+    "renewal_vs_new_pct": 72,
+    "note": "72% of leases are renewals not new expansions — consolidation signal",
+    "coworking_occupancy_pct": 88,
+    "coworking_signal": "healthy",
+    "corridors": [
+      {
+        "name": "Outer Ring Road",
+        "vacancy_pct": 17.2,
+        "signal": "warning",
+        "note": "Primary IT corridor. Vacancy up from 12% in 2023."
+      },
+      {
+        "name": "Whitefield",
+        "vacancy_pct": 20.1,
+        "signal": "warning",
+        "note": "Highest vacancy in major corridor. Several large blocks unoccupied."
+      },
+      {
+        "name": "Electronic City",
+        "vacancy_pct": 16.8,
+        "signal": "warning",
+        "note": "Some anchor tenants have downsized floors."
+      },
+      {
+        "name": "Hebbal / Manyata",
+        "vacancy_pct": 14.5,
+        "signal": "neutral",
+        "note": "Relatively stable. MNC captives anchor this micro-market."
+      }
+    ],
+    "history": [
+      { "quarter": "Q1 2024", "absorption": 15.2, "vacancy": 12.1 },
+      { "quarter": "Q2 2024", "absorption": 14.8, "vacancy": 13.4 },
+      { "quarter": "Q3 2024", "absorption": 14.5, "vacancy": 14.9 },
+      { "quarter": "Q4 2024", "absorption": 14.1, "vacancy": 16.2 },
+      { "quarter": "Q1 2025", "absorption": 14.3, "vacancy": 17.0 },
+      { "quarter": "Q2 2025", "absorption": 14.0, "vacancy": 17.8 },
+      { "quarter": "Q3 2025", "absorption": 14.4, "vacancy": 18.1 },
+      { "quarter": "Q4 2025", "absorption": 14.2, "vacancy": 18.4 }
+    ]
+  },
+  "consumer_economy": {
+    "residential_demand": {
+      "label": "Residential demand index",
+      "corridors": ["Sarjapur Road", "Hebbal", "Kanakpura Road", "Whitefield"],
+      "price_trend": "up",
+      "volume_trend": "down",
+      "signal": "mixed",
+      "note": "Prices still rising on low supply, but transaction volumes softening — affordability squeeze"
+    },
+    "vehicle_registrations": {
+      "label": "New vehicle registrations (BLR RTO)",
+      "yoy_change_pct": -6,
+      "signal": "warning",
+      "note": "Mild softening in vehicle registrations — proxy for IT disposable income and job confidence"
+    },
+    "fb_index": {
+      "label": "F&B revenue index (Koramangala / Indiranagar)",
+      "signal": "stable",
+      "note": "Weekend footfall remains healthy. Weekday lunch activity slightly down."
+    },
+    "upskilling_enrollments": {
+      "label": "Upskilling enrollment spike",
+      "platforms": ["UpGrad", "Simplilearn", "Coursera India"],
+      "yoy_change_pct": 32,
+      "signal": "warning",
+      "note": "Counter-intuitive anxiety signal — spikes indicate workforce fear, not confidence. BLR cohorts specifically up 32% YoY."
+    }
+  }
+}

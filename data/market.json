@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "description": "Market-level signals: BSE IT index, IT major stock data, US layoffs",
+    "update_frequency": "Weekly (auto) + Manual for commentary",
+    "sources": ["NSE/BSE", "Layoffs.fyi", "Company quarterly reports"],
+    "last_updated": "2026-03-18",
+    "updated_by": "maintainer"
+  },
+  "bse_it_index": {
+    "label": "BSE IT Index",
+    "current": 37240,
+    "unit": "INR points",
+    "history": [
+      { "date": "2025-10-01", "value": 47200 },
+      { "date": "2025-11-01", "value": 45800 },
+      { "date": "2025-12-01", "value": 44100 },
+      { "date": "2026-01-01", "value": 41800 },
+      { "date": "2026-02-01", "value": 38200 },
+      { "date": "2026-03-01", "value": 37240 }
+    ],
+    "signal": "bearish",
+    "note": "Down ~24% since Jan 2026. Hit 2.5yr low in Feb 2026 on AI outsourcing fears."
+  },
+  "it_stocks": [
+    {
+      "ticker": "TCS",
+      "name": "Tata Consultancy Services",
+      "price_inr": 3482,
+      "signal": "neutral",
+      "hiring_guidance": "~40,000 freshers FY26 (down from 60K in FY24)",
+      "utilisation_pct": 82,
+      "commentary": "Utilisation rising without headcount growth — AI-augmented delivery"
+    },
+    {
+      "ticker": "INFY",
+      "name": "Infosys",
+      "price_inr": 1621,
+      "signal": "neutral",
+      "hiring_guidance": "~25,000 freshers FY26, offer delays reported",
+      "utilisation_pct": 81,
+      "commentary": "Guidance maintained but fresher joining timelines stretched"
+    },
+    {
+      "ticker": "WIPRO",
+      "name": "Wipro",
+      "price_inr": 462,
+      "signal": "bearish",
+      "hiring_guidance": "~12,000 freshers FY26",
+      "utilisation_pct": 80,
+      "commentary": "Headcount flat, utilisation up — fewer hires needed per project"
+    },
+    {
+      "ticker": "HCLTECH",
+      "name": "HCL Technologies",
+      "price_inr": 1580,
+      "signal": "neutral",
+      "hiring_guidance": "~10,000 freshers FY26",
+      "utilisation_pct": 83,
+      "commentary": "Products division growing; services headcount flat"
+    }
+  ],
+  "us_layoffs": {
+    "ytd_2026": 30000,
+    "ytd_2026_companies": 45,
+    "full_year_2025": 124000,
+    "ai_attributed_pct": 38,
+    "lag_effect_quarters": "2-3",
+    "signal": "bearish",
+    "history": [
+      { "period": "Q2 2025", "count": 28000 },
+      { "period": "Q3 2025", "count": 31000 },
+      { "period": "Q4 2025", "count": 38000 },
+      { "period": "Q1 2026", "count": 30000 }
+    ],
+    "note": "US tech layoffs lead Bangalore impact by ~2-3 quarters historically"
+  }
+}
