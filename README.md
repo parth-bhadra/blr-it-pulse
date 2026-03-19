@@ -173,6 +173,8 @@ This dashboard runs on community data. If you work in Bangalore's IT ecosystem �
 
 **The most valuable thing you can do:** own one indicator and update it consistently every month.
 
+**Note:** Data files preserve historical snapshots (last 52 weeks) — updates add to history, nothing is deleted.
+
 👉 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
 **Quick contribution (no coding needed):**
@@ -191,6 +193,7 @@ The goal is not to spread fear. It's to replace anxiety with information.
 ## Roadmap
 
 - [x] Auto-fetch BSE IT index via Yahoo Finance API
+- [x] Historical snapshots (preserved on each auto-update)
 - [ ] Auto-fetch Layoffs.fyi RSS feed via GitHub Action
 - [ ] Historical score chart (composite score over time)
 - [ ] Email/WhatsApp digest for weekly summary

@@ -93,6 +93,27 @@ blr-it-pulse/
 | Campus hiring | Company press releases | ❌ Manual |
 | Ground truth | Community observations | ❌ Manual |
 
+### Historical Snapshots
+
+Automated data files preserve historical snapshots before each update:
+
+- **Location**: `snapshots[]` array within each data file
+- **Retention**: Last 52 weekly snapshots (1 year)
+- **Trigger**: Automatically saved by fetch scripts before updating current values
+- **Access**: Available in frontend via `data.market.json.snapshots`
+
+Example snapshot structure:
+```json
+"snapshots": [
+  {
+    "date": "2026-03-19",
+    "bse_it_index": { "current": 28580, ... },
+    "it_stocks": [...],
+    "us_layoffs": {...}
+  }
+]
+```
+
 ---
 
 ## Component Architecture
