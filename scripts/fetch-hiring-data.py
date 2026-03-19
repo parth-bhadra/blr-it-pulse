@@ -47,6 +47,19 @@ def save_json(filepath, data):
         f.write("\n")
 
 
+def create_snapshot(data):
+    import copy
+    snapshot = {
+        "date": datetime.now().strftime("%Y-%m-%d"),
+        "job_postings": copy.deepcopy(data.get("job_postings", [])),
+        "jd_signals": copy.deepcopy(data.get("jd_signals", {})),
+    }
+    if "snapshots" not in data:
+        data["snapshots"] = []
+    data["snapshots"].insert(0, snapshot)
+    data["snapshots"] = data["snapshots"][:52]
+
+
 def fetch_adzuna_count(search_term, location="Bangalore"):
     if not ADZUNA_APP_ID or not ADZUNA_APP_KEY:
         return None
@@ -172,6 +185,7 @@ def main():
     data["_meta"]["last_updated"] = datetime.now().strftime("%Y-%m-%d")
     data["_meta"]["updated_by"] = "auto-fetcher"
 
+    create_snapshot(data)
     save_json(HIRING_FILE, data)
     print("Done!")
 

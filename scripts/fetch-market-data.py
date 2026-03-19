@@ -33,6 +33,20 @@ def save_json(filepath, data):
         f.write("\n")
 
 
+def create_snapshot(data):
+    import copy
+    snapshot = {
+        "date": datetime.now().strftime("%Y-%m-%d"),
+        "bse_it_index": copy.deepcopy(data.get("bse_it_index", {})),
+        "it_stocks": copy.deepcopy(data.get("it_stocks", [])),
+        "us_layoffs": copy.deepcopy(data.get("us_layoffs", {})),
+    }
+    if "snapshots" not in data:
+        data["snapshots"] = []
+    data["snapshots"].insert(0, snapshot)
+    data["snapshots"] = data["snapshots"][:52]
+
+
 def get_bse_it_index():
     ticker = yf.Ticker("^CNXIT")
     hist = ticker.history(period="6mo")
@@ -129,6 +143,7 @@ def main():
     data["_meta"]["last_updated"] = datetime.now().strftime("%Y-%m-%d")
     data["_meta"]["updated_by"] = "auto-fetcher"
     
+    create_snapshot(data)
     save_json(MARKET_FILE, data)
     print("Done!")
 
