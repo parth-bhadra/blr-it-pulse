@@ -6,3 +6,4 @@ dist/
 *.log
 **/Zone.Identifier
 **/*.Zone.Identifier
+.venv/

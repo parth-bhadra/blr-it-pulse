@@ -81,7 +81,7 @@ No backend. No database. No API keys required to run locally. The entire data la
 git clone https://github.com/parth-bhadra/blr-it-pulse.git
 cd blr-it-pulse
 
-# Install
+# Install frontend dependencies
 npm install
 
 # Dev server
@@ -94,6 +94,25 @@ node scripts/validate-data.js
 # Production build
 npm run build
 ```
+
+### Data fetching (Docker)
+
+```bash
+# Build data fetcher image
+docker build -t blr-it-pulse-data .
+
+# Fetch all data
+docker run --rm -v "$(pwd)/data:/app/data" blr-it-pulse-data
+
+# With Adzuna API keys (for better job data)
+docker run --rm \
+  -v "$(pwd)/data:/app/data" \
+  -e ADZUNA_APP_ID=xxx \
+  -e ADZUNA_APP_KEY=xxx \
+  blr-it-pulse-data
+```
+
+Get free Adzuna API keys at [developer.adzuna.com](https://developer.adzuna.com).
 
 ---
 
@@ -126,15 +145,22 @@ blr-it-pulse/
 │   └── index.css
 │
 ├── scripts/
-│   └── validate-data.js     # JSON schema validator (run in CI)
+│   ├── validate-data.js     # JSON schema validator (run in CI)
+│   ├── fetch-all-data.py     # Master script (runs all fetchers)
+│   ├── fetch-market-data.py  # BSE IT Index & stock prices
+│   └── fetch-hiring-data.py  # Job counts (Adzuna API / Naukri)
 │
 ├── .github/
 │   ├── workflows/
 │   │   ├── deploy.yml       # Auto-deploy to GitHub Pages on push to main
-│   │   └── validate-data.yml # Validate JSON on data PRs
+│   │   ├── validate-data.yml # Validate JSON on data PRs
+│   │   └── fetch-data.yml   # Weekly auto-fetch of market & hiring data
 │   └── ISSUE_TEMPLATE/
 │       └── data_point.yml   # Structured issue form for data contributions
 │
+├── Dockerfile               # Data fetcher container
+├── .dockerignore
+├── requirements.txt         # Python dependencies (yfinance, playwright)
 ├── CONTRIBUTING.md
 └── README.md
 ```
@@ -164,7 +190,7 @@ The goal is not to spread fear. It's to replace anxiety with information.
 
 ## Roadmap
 
-- [ ] Auto-fetch BSE IT index via NSE unofficial API
+- [x] Auto-fetch BSE IT index via Yahoo Finance API
 - [ ] Auto-fetch Layoffs.fyi RSS feed via GitHub Action
 - [ ] Historical score chart (composite score over time)
 - [ ] Email/WhatsApp digest for weekly summary

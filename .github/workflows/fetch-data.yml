@@ -1,0 +1,45 @@
+name: Fetch Data
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # Every Monday at 6 AM UTC
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch data with Docker
+        run: |
+          docker build -t blr-it-pulse-data .
+          docker run --rm \
+            -v "${{ github.workspace }}/data:/app/data" \
+            -e ADZUNA_APP_ID=${{ secrets.ADZUNA_APP_ID }} \
+            -e ADZUNA_APP_KEY=${{ secrets.ADZUNA_APP_KEY }} \
+            blr-it-pulse-data
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: Auto-update data"
+          title: "chore: Auto-update market & hiring data"
+          body: |
+            ## Auto Data Update
+            
+            Auto-fetched latest data:
+            - BSE IT Index & stock prices
+            - Job posting counts (Adzuna API / Naukri)
+            
+            ⚠️ **Note**: Please review hiring data before merging.
+          branch: auto/data-update
+          delete-branch: true
+          labels: automated, data-update

@@ -1,0 +1,17 @@
+node_modules
+dist
+.venv
+.git
+.github
+src
+public
+*.jsx
+*.js
+*.css
+*.html
+*.json
+!package.json
+!requirements.txt
+*.md
+LICENSE
+.env*
