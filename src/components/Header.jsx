@@ -4,15 +4,7 @@ export default function Header({ lastUpdated }) {
   const now = new Date()
 
   return (
-    <header style={{
-      borderBottom: '1px solid var(--border)',
-      padding: '20px 24px 16px',
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'space-between',
-      gap: '16px',
-      flexWrap: 'wrap',
-    }}>
+    <header className="header">
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
         <div style={{ fontFamily: 'var(--mono)', fontSize: '11px', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           BLR · IT Risk Observatory
@@ -25,7 +17,7 @@ export default function Header({ lastUpdated }) {
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
+      <div className="header-right">
         <LiveBadge />
         <div style={{ fontFamily: 'var(--mono)', fontSize: '10px', color: 'var(--muted)' }}>
           Updated: {format(now, 'd MMM yyyy')}

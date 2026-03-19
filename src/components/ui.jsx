@@ -2,13 +2,7 @@
 
 export function Card({ children, style = {} }) {
   return (
-    <div style={{
-      background: 'var(--bg2)',
-      border: '1px solid var(--border)',
-      borderRadius: 'var(--radius)',
-      overflow: 'hidden',
-      ...style
-    }}>
+    <div className="card" style={style}>
       {children}
     </div>
   )
@@ -16,13 +10,7 @@ export function Card({ children, style = {} }) {
 
 export function CardHeader({ title, source }) {
   return (
-    <div style={{
-      padding: '12px 16px 10px',
-      borderBottom: '1px solid var(--border)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    }}>
+    <div className="card-header">
       <div style={{ fontFamily: 'var(--mono)', fontSize: '11px', fontWeight: 600, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
         {title}
       </div>
@@ -37,7 +25,7 @@ export function CardHeader({ title, source }) {
 
 export function CardBody({ children, style = {} }) {
   return (
-    <div style={{ padding: '14px 16px', ...style }}>
+    <div className="card-body" style={style}>
       {children}
     </div>
   )
@@ -46,21 +34,14 @@ export function CardBody({ children, style = {} }) {
 export function IndRow({ name, meta, value, change, changeDir }) {
   const changeColor = changeDir === 'good' ? 'var(--green)' : changeDir === 'bad' ? 'var(--red)' : 'var(--yellow)'
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: '8px',
-      padding: '8px 0',
-      borderBottom: '1px solid var(--border)',
-    }}>
-      <div>
-        <div style={{ fontSize: '13px', fontWeight: 500, color: 'var(--text)' }}>{name}</div>
-        {meta && <div style={{ fontFamily: 'var(--mono)', fontSize: '10px', color: 'var(--muted)', marginTop: '2px' }}>{meta}</div>}
+    <div className="ind-row">
+      <div className="ind-row-info">
+        <div className="ind-row-name">{name}</div>
+        {meta && <div className="ind-row-meta">{meta}</div>}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '2px' }}>
-        <div style={{ fontFamily: 'var(--mono)', fontSize: '14px', fontWeight: 600, color: changeColor }}>{value}</div>
-        {change && <div style={{ fontFamily: 'var(--mono)', fontSize: '11px', color: changeColor }}>{change}</div>}
+      <div className="ind-row-value">
+        <div className="ind-row-change-val" style={{ color: changeColor }}>{value}</div>
+        {change && <div className="ind-row-change-text" style={{ color: changeColor }}>{change}</div>}
       </div>
     </div>
   )
@@ -121,11 +102,7 @@ export function SignalDot({ signal }) {
 
 export function TwoColGrid({ children }) {
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-      gap: '16px',
-    }}>
+    <div className="card-grid">
       {children}
     </div>
   )

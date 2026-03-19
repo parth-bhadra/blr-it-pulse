@@ -1,6 +1,6 @@
 import { MiniBar } from './ui.jsx'
 
-const CIRCUMFERENCE = 2 * Math.PI * 48 // r=48
+const CIRCUMFERENCE = 2 * Math.PI * 48
 
 function scoreColor(score) {
   if (score < 40) return 'var(--green)'
@@ -22,18 +22,8 @@ export default function RiskMeter({ score }) {
   const dashoffset = CIRCUMFERENCE * (1 - composite / 100)
 
   return (
-    <div style={{
-      background: 'var(--bg2)',
-      border: '1px solid var(--border)',
-      borderRadius: 'var(--radius)',
-      padding: '20px',
-      display: 'grid',
-      gridTemplateColumns: 'auto 1fr',
-      gap: '28px',
-      alignItems: 'center',
-    }}>
-      {/* Gauge */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+    <div className="risk-meter">
+      <div className="risk-meter-gauge">
         <div style={{ position: 'relative', width: '120px', height: '120px' }}>
           <svg width="120" height="120" viewBox="0 0 120 120">
             <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="10" />
@@ -67,21 +57,16 @@ export default function RiskMeter({ score }) {
         </div>
       </div>
 
-      {/* Detail */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div className="risk-meter-detail">
         <div>
-          <div style={{ fontSize: '16px', fontWeight: 500, color: 'var(--text)', marginBottom: '4px' }}>
-            Composite Disruption Risk Score
-          </div>
-          <div style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.6 }}>
-            {description}
-          </div>
+          <div className="risk-meter-title">Composite Disruption Risk Score</div>
+          <div className="risk-meter-description">{description}</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {Object.entries(layers).map(([key, layer]) => (
             <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: '11px', color: 'var(--muted)', width: '110px', flexShrink: 0, textTransform: 'capitalize' }}>
+              <div className="risk-meter-layer-label">
                 {key.replace('_', ' ')}
               </div>
               <div style={{ flex: 1 }}>
