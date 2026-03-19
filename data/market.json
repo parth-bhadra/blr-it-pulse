@@ -21,6 +21,21 @@
     "signal": "bearish",
     "note": "Down ~24% since Jan 2026. Hit 2.5yr low in Feb 2026 on AI outsourcing fears."
   },
+  "nifty_50": {
+    "label": "Nifty 50",
+    "current": 22580,
+    "unit": "INR points",
+    "history": [
+      { "date": "2025-10-01", "value": 25800 },
+      { "date": "2025-11-01", "value": 25200 },
+      { "date": "2025-12-01", "value": 24600 },
+      { "date": "2026-01-01", "value": 23800 },
+      { "date": "2026-02-01", "value": 23000 },
+      { "date": "2026-03-01", "value": 22580 }
+    ],
+    "signal": "bearish",
+    "note": "Down ~5% since Jan 2026 — broader market relatively resilient vs IT sector"
+  },
   "it_stocks": [
     {
       "ticker": "TCS",

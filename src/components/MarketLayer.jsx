@@ -10,23 +10,90 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 const chartOpts = {
   responsive: true,
   maintainAspectRatio: false,
-  plugins: { legend: { display: false }, tooltip: { enabled: false } },
-  scales: { x: { display: false }, y: { display: false } },
+  plugins: { 
+    legend: { display: false }, 
+    tooltip: { 
+      enabled: true,
+      backgroundColor: '#1f2937',
+      padding: 10,
+      cornerRadius: 6,
+      callbacks: {
+        label: (ctx) => `₹${ctx.raw?.toLocaleString('en-IN') || ctx.raw}`
+      }
+    }
+  },
+  scales: { 
+    x: { display: false }, 
+    y: { display: false } 
+  },
   elements: { point: { radius: 0 }, line: { tension: 0.4, borderWidth: 2 } },
   animation: { duration: 1200 },
 }
 
+const chartOptsWithLabels = {
+  ...chartOpts,
+  plugins: {
+    ...chartOpts.plugins,
+    legend: {
+      display: true,
+      position: 'top',
+      align: 'end',
+      labels: {
+        boxWidth: 12,
+        boxHeight: 12,
+        borderRadius: 2,
+        useBorderRadius: true,
+        padding: 12,
+        font: { size: 10, weight: '500' },
+        color: '#6b7280',
+      }
+    }
+  },
+}
+
 export default function MarketLayer({ market }) {
-  const { bse_it_index, it_stocks, us_layoffs } = market
+  const { bse_it_index, nifty_50, it_stocks, us_layoffs } = market
 
   const bseChartData = {
     labels: bse_it_index.history.map(h => h.date),
     datasets: [{
+      label: 'BSE IT Index',
       data: bse_it_index.history.map(h => h.value),
       borderColor: '#f43f5e',
       backgroundColor: 'rgba(244,63,94,0.08)',
       fill: true,
     }]
+  }
+
+  const niftyChartData = {
+    labels: nifty_50.history.map(h => h.date),
+    datasets: [{
+      label: 'Nifty 50',
+      data: nifty_50.history.map(h => h.value),
+      borderColor: '#22c55e',
+      backgroundColor: 'rgba(34,197,94,0.08)',
+      fill: true,
+    }]
+  }
+
+  const combinedChartData = {
+    labels: bse_it_index.history.map(h => h.date),
+    datasets: [
+      {
+        label: 'BSE IT Index',
+        data: bse_it_index.history.map(h => h.value),
+        borderColor: '#f43f5e',
+        backgroundColor: 'rgba(244,63,94,0.08)',
+        fill: true,
+      },
+      {
+        label: 'Nifty 50',
+        data: nifty_50.history.map(h => h.value),
+        borderColor: '#22c55e',
+        backgroundColor: 'rgba(34,197,94,0.08)',
+        fill: true,
+      }
+    ]
   }
 
   const layoffChartData = {
@@ -61,8 +128,31 @@ export default function MarketLayer({ market }) {
               changeDir={stock.signal === 'neutral' ? 'neutral' : 'bad'}
             />
           ))}
-          <div style={{ height: '72px', marginTop: '12px' }}>
-            <Line data={bseChartData} options={chartOpts} />
+          
+          {/* Combined comparison chart */}
+          <div style={{ marginTop: '16px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '600', color: '#374151', marginBottom: '8px' }}>
+              BSE IT vs Nifty 50 (6-month)
+            </div>
+            <div style={{ height: '90px' }}>
+              <Line data={combinedChartData} options={chartOptsWithLabels} />
+            </div>
+          </div>
+
+          {/* Value labels */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: '#f43f5e' }}></div>
+              <span style={{ color: '#6b7280' }}>IT: ₹{bse_it_index.history[0].value.toLocaleString('en-IN')} → ₹{bse_it_index.current.toLocaleString('en-IN')}</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: '#22c55e' }}></div>
+              <span style={{ color: '#6b7280' }}>Nifty: ₹{nifty_50.history[0].value.toLocaleString('en-IN')} → ₹{nifty_50.current.toLocaleString('en-IN')}</span>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '12px', padding: '10px', background: 'rgba(244,63,94,0.08)', borderRadius: '6px', fontSize: '11px', color: '#991b1b' }}>
+            <strong>Insight:</strong> IT Index down 4.8x more than Nifty — sector-specific weakness, not broad market decline
           </div>
         </CardBody>
       </Card>
