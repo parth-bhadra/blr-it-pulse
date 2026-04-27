@@ -2,23 +2,45 @@
   "_meta": {
     "description": "Market-level signals: BSE IT index, IT major stock data, US layoffs",
     "update_frequency": "Weekly (auto) + Manual for commentary",
-    "sources": ["NSE/BSE", "Layoffs.fyi", "Company quarterly reports"],
-    "last_updated": "2026-03-18",
-    "updated_by": "maintainer"
+    "sources": [
+      "NSE/BSE",
+      "Layoffs.fyi",
+      "Company quarterly reports"
+    ],
+    "last_updated": "2026-04-27",
+    "updated_by": "auto-fetcher"
   },
   "bse_it_index": {
     "label": "BSE IT Index",
-    "current": 37240,
+    "current": 29107,
     "unit": "INR points",
     "history": [
-      { "date": "2025-10-01", "value": 47200 },
-      { "date": "2025-11-01", "value": 45800 },
-      { "date": "2025-12-01", "value": 44100 },
-      { "date": "2026-01-01", "value": 41800 },
-      { "date": "2026-02-01", "value": 38200 },
-      { "date": "2026-03-01", "value": 37240 }
+      {
+        "date": "2026-04-01",
+        "value": 31586
+      },
+      {
+        "date": "2026-04-01",
+        "value": 31729
+      },
+      {
+        "date": "2026-04-01",
+        "value": 30496
+      },
+      {
+        "date": "2026-04-01",
+        "value": 30124
+      },
+      {
+        "date": "2026-04-01",
+        "value": 28531
+      },
+      {
+        "date": "2026-04-01",
+        "value": 29107
+      }
     ],
-    "signal": "bearish",
+    "signal": "neutral",
     "note": "Down ~24% since Jan 2026. Hit 2.5yr low in Feb 2026 on AI outsourcing fears."
   },
   "nifty_50": {
@@ -26,30 +48,48 @@
     "current": 22580,
     "unit": "INR points",
     "history": [
-      { "date": "2025-10-01", "value": 25800 },
-      { "date": "2025-11-01", "value": 25200 },
-      { "date": "2025-12-01", "value": 24600 },
-      { "date": "2026-01-01", "value": 23800 },
-      { "date": "2026-02-01", "value": 23000 },
-      { "date": "2026-03-01", "value": 22580 }
+      {
+        "date": "2025-10-01",
+        "value": 25800
+      },
+      {
+        "date": "2025-11-01",
+        "value": 25200
+      },
+      {
+        "date": "2025-12-01",
+        "value": 24600
+      },
+      {
+        "date": "2026-01-01",
+        "value": 23800
+      },
+      {
+        "date": "2026-02-01",
+        "value": 23000
+      },
+      {
+        "date": "2026-03-01",
+        "value": 22580
+      }
     ],
     "signal": "bearish",
-    "note": "Down ~5% since Jan 2026 — broader market relatively resilient vs IT sector"
+    "note": "Down ~5% since Jan 2026 \u2014 broader market relatively resilient vs IT sector"
   },
   "it_stocks": [
     {
       "ticker": "TCS",
       "name": "Tata Consultancy Services",
-      "price_inr": 3482,
+      "price_inr": 2446,
       "signal": "neutral",
       "hiring_guidance": "~40,000 freshers FY26 (down from 60K in FY24)",
       "utilisation_pct": 82,
-      "commentary": "Utilisation rising without headcount growth — AI-augmented delivery"
+      "commentary": "Utilisation rising without headcount growth \u2014 AI-augmented delivery"
     },
     {
       "ticker": "INFY",
       "name": "Infosys",
-      "price_inr": 1621,
+      "price_inr": 1170,
       "signal": "neutral",
       "hiring_guidance": "~25,000 freshers FY26, offer delays reported",
       "utilisation_pct": 81,
@@ -58,16 +98,16 @@
     {
       "ticker": "WIPRO",
       "name": "Wipro",
-      "price_inr": 462,
+      "price_inr": 204,
       "signal": "bearish",
       "hiring_guidance": "~12,000 freshers FY26",
       "utilisation_pct": 80,
-      "commentary": "Headcount flat, utilisation up — fewer hires needed per project"
+      "commentary": "Headcount flat, utilisation up \u2014 fewer hires needed per project"
     },
     {
       "ticker": "HCLTECH",
       "name": "HCL Technologies",
-      "price_inr": 1580,
+      "price_inr": 1222,
       "signal": "neutral",
       "hiring_guidance": "~10,000 freshers FY26",
       "utilisation_pct": 83,
@@ -82,11 +122,126 @@
     "lag_effect_quarters": "2-3",
     "signal": "bearish",
     "history": [
-      { "period": "Q2 2025", "count": 28000 },
-      { "period": "Q3 2025", "count": 31000 },
-      { "period": "Q4 2025", "count": 38000 },
-      { "period": "Q1 2026", "count": 30000 }
+      {
+        "period": "Q2 2025",
+        "count": 28000
+      },
+      {
+        "period": "Q3 2025",
+        "count": 31000
+      },
+      {
+        "period": "Q4 2025",
+        "count": 38000
+      },
+      {
+        "period": "Q1 2026",
+        "count": 30000
+      }
     ],
     "note": "US tech layoffs lead Bangalore impact by ~2-3 quarters historically"
-  }
+  },
+  "snapshots": [
+    {
+      "date": "2026-04-27",
+      "bse_it_index": {
+        "label": "BSE IT Index",
+        "current": 29107,
+        "unit": "INR points",
+        "history": [
+          {
+            "date": "2026-04-01",
+            "value": 31586
+          },
+          {
+            "date": "2026-04-01",
+            "value": 31729
+          },
+          {
+            "date": "2026-04-01",
+            "value": 30496
+          },
+          {
+            "date": "2026-04-01",
+            "value": 30124
+          },
+          {
+            "date": "2026-04-01",
+            "value": 28531
+          },
+          {
+            "date": "2026-04-01",
+            "value": 29107
+          }
+        ],
+        "signal": "neutral",
+        "note": "Down ~24% since Jan 2026. Hit 2.5yr low in Feb 2026 on AI outsourcing fears."
+      },
+      "it_stocks": [
+        {
+          "ticker": "TCS",
+          "name": "Tata Consultancy Services",
+          "price_inr": 2446,
+          "signal": "neutral",
+          "hiring_guidance": "~40,000 freshers FY26 (down from 60K in FY24)",
+          "utilisation_pct": 82,
+          "commentary": "Utilisation rising without headcount growth \u2014 AI-augmented delivery"
+        },
+        {
+          "ticker": "INFY",
+          "name": "Infosys",
+          "price_inr": 1170,
+          "signal": "neutral",
+          "hiring_guidance": "~25,000 freshers FY26, offer delays reported",
+          "utilisation_pct": 81,
+          "commentary": "Guidance maintained but fresher joining timelines stretched"
+        },
+        {
+          "ticker": "WIPRO",
+          "name": "Wipro",
+          "price_inr": 204,
+          "signal": "bearish",
+          "hiring_guidance": "~12,000 freshers FY26",
+          "utilisation_pct": 80,
+          "commentary": "Headcount flat, utilisation up \u2014 fewer hires needed per project"
+        },
+        {
+          "ticker": "HCLTECH",
+          "name": "HCL Technologies",
+          "price_inr": 1222,
+          "signal": "neutral",
+          "hiring_guidance": "~10,000 freshers FY26",
+          "utilisation_pct": 83,
+          "commentary": "Products division growing; services headcount flat"
+        }
+      ],
+      "us_layoffs": {
+        "ytd_2026": 30000,
+        "ytd_2026_companies": 45,
+        "full_year_2025": 124000,
+        "ai_attributed_pct": 38,
+        "lag_effect_quarters": "2-3",
+        "signal": "bearish",
+        "history": [
+          {
+            "period": "Q2 2025",
+            "count": 28000
+          },
+          {
+            "period": "Q3 2025",
+            "count": 31000
+          },
+          {
+            "period": "Q4 2025",
+            "count": 38000
+          },
+          {
+            "period": "Q1 2026",
+            "count": 30000
+          }
+        ],
+        "note": "US tech layoffs lead Bangalore impact by ~2-3 quarters historically"
+      }
+    }
+  ]
 }
